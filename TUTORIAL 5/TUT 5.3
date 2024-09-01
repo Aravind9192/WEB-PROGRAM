@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial 5.3</title>
+</head>
+<body>
+    <h1>GROSS PAY</h1>
+    <div id="results"></div>
+
+    <script>
+        function calculate(hours, rate) 
+        {
+            const regularHours = Math.min(hours, 40);
+            const overtimeHours = Math.max(hours - 40, 0);
+            return (regularHours * rate) + (overtimeHours * rate * 1.5);
+        }
+
+        const results = document.getElementById('results');
+
+        for (let i = 1; i <= 3; i++)
+         {
+            const name = prompt(`Enter name for employee ${i}:`);
+            const hours = parseFloat(prompt(`Enter hours worked for ${name}:`));
+            const rate = parseFloat(prompt(`Enter hourly rate for ${name}:`));
+
+            const grossPay = calculate(hours, rate);
+
+            document.writeln(`<p>${name}'s gross pay: $${grossPay.toFixed(2)}</p>`);
+        }
+    </script>
+</body>
+</html>
